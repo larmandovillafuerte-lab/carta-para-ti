@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Para mi mejor amiga 💛</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Pantalla inicial */
+        #inicio {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            z-index: 10;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            background: hotpink;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* Carta */
+        #carta {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #ffb6c1, #ffc0cb);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            box-sizing: border-box;
+        }
+
+        .texto {
+            max-width: 800px;
+            margin: auto;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        /* Corazones */
+        .heart {
+            position: absolute;
+            color: pink;
+            font-size: 25px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Árboles */
+        .tree {
+            position: absolute;
+            bottom: 0;
+            font-size: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Pantalla inicio -->
+    <div id="inicio">
+        <h1>Tengo algo para ti 💛</h1>
+        <button onclick="abrirCarta()">Abrir</button>
+    </div>
+
+    <!-- Carta -->
+    <div id="carta">
+        <div class="texto">
+            <h1>💛 Para ti 💛</h1>
+
+            <p>
+                Oye, eres mi mejor amiga y punto, de esas que no se explican con palabras pero se sienten en todo 😭.
+                Contigo puedo ser yo al 100%: con mis locuras, mis dramas tontos, mis días de "no quiero nada"
+                y mis risas escandalosas.
+            </p>
+
+            <p>
+                Nunca me juzgas, siempre estás, me jalas cuando me caigo y me celebras hasta las victorias chiquitas
+                como si fueran enormes.
+            </p>
+
+            <p>
+                Hemos pasado de todo juntos: madrugadas de pláticas sin sentido, planes fallidos que terminan en risas,
+                secretos que solo nosotros sabemos y silencios donde no hace falta decir nada porque ya nos entendemos perfecto.
+            </p>
+
+            <p>
+                Eres mi familia elegida, la que hace que la vida sea más fácil y divertida al mismo tiempo.
+            </p>
+
+            <p>
+                Gracias por quererme tal cual soy, por ser mi cómplice, mi apoyo y mi recordatorio de que
+                las amistades de verdad existen y duran para siempre.
+            </p>
+
+            <p>
+                Te quiero un chorro inmenso, amiga, como se quiere a la persona que te hace mejor sin intentarlo.
+                Prometo seguir siendo tu loca de confianza hasta viejitas ❤️
+            </p>
+        </div>
+
+        <!-- Árboles -->
+        <div class="tree" style="left: 10%">🌸</div>
+        <div class="tree" style="right: 10%">🌸</div>
+    </div>
+
+    <script>
+        function abrirCarta() {
+            document.getElementById("inicio").style.display = "none";
+            document.getElementById("carta").style.display = "block";
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "💗";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 200);
+    </script>
+
+</body>
+</html>
